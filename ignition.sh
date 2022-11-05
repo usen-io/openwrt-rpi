@@ -40,7 +40,7 @@ opkg install                    \
       luci-app-advanced-reboot    
 
 # install wireguard packages
-opkg install
+opkg install                    \
       luci-app-wireguard        \
       luci-proto-wireguard
 
