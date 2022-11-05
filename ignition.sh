@@ -65,6 +65,10 @@ service uhttpd reload
 
 # sync and reboot
 sync; sync
+sleep 3
+
+# done
+echo 'DONE'
 
 # reboot
 reboot
