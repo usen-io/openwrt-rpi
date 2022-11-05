@@ -1,0 +1,50 @@
+
+config interface 'loopback'
+	option device 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd23:d733:757b::/48'
+
+config device
+	option name 'br-lan'
+	option type 'bridge'
+	list ports 'eth0'
+
+config interface 'lan'
+	option device 'br-lan'
+	option proto 'static'
+	option ipaddr '<LAN-IP-ACCESS>'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+	option force_link '1'
+
+config interface 'wwan'
+	option proto 'dhcp'
+
+config interface 'wlan'
+	option proto 'dhcp'
+
+config device
+	option name 'DEVICE-NAME'
+
+config interface '<INTERFACE-NAME>'
+	option proto 'wireguard'
+	option private_key '<PRIV-KEY>'
+	option listen_port '<LIST-PORT>'
+	list addresses '<LIST-ADDR>'
+
+config <CONFIG-NAME>
+	option description '<INTERFACE-NAME>'
+	option public_key '<PRUB-KEY>'
+	option preshared_key '<PRE-SHARED-KEY>'
+	list allowed_ips '<IPV4-RANGE>'
+	list allowed_ips '<IPV6-RANGE>'
+	option route_allowed_ips '1'
+	option endpoint_host '<ENDPOINT>'
+	option endpoint_port '<ENDPOINT-PORT>'
+
+
+
